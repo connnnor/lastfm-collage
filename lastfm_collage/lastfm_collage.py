@@ -1,12 +1,11 @@
-from PIL import Image, ImageDraw, ImageFont
 from math import sqrt
-from os.path import basename
-import pylast
 import json
-import wget
 import uuid
 import sys
 import os
+from PIL import Image
+import pylast
+import wget
 
 
 def do_sizes_match(imgs):
@@ -88,4 +87,4 @@ if __name__ == "__main__":
     try:
         gen_album_collage(sys.argv[1])
     except IndexError:
-        print(f"Usage: ./lastfm_collage <lastfm_username>")
+        print("Usage: ./lastfm_collage <lastfm_username>")
