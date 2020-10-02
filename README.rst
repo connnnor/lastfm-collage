@@ -3,7 +3,7 @@ lastfm-collage
 
 lastfm-collage is a tool to generate image collages from last.fm user's top albums and artists, like `this <https://gist.github.com/connnnor/b0970c52ebc53a6b586a7abf49c171f2/raw/f407f1910900a09ca81429e0a91e4f45539b39c5/1month.png>`_
 
-I created this as part of a project to mess around with Django
+I created this as part of a project to mess around with Django. The original idea to generate album art collages is from `tapmusic <http://tapmusic.net>`_
 
 Quickstart
 ----------
