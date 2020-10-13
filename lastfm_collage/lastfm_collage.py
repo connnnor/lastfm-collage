@@ -3,6 +3,7 @@ import json
 import uuid
 import sys
 import os
+import tempfile
 from PIL import Image
 import pylast
 import wget
@@ -73,13 +74,17 @@ def gen_album_collage(username, period=pylast.PERIOD_7DAYS, limit=9, dst_dir=Non
     user = network.get_user(username)
     top_albums = user.get_top_albums(period=period, limit=limit)
     cover_art_urls = [x.item.get_cover_image() for x in top_albums]
-    # download urls locally
-    art_files = download_links(cover_art_urls)
+    # download urls locally to temp directory
+
+    temp_d = tempfile.TemporaryDirectory()
+    art_files = download_links(cover_art_urls,temp_d.name)
     art_imgs = [Image.open(f) for f in art_files]
     # create collage
     im = gen_collage(art_imgs)
     dst = (dst_dir or "") + uuid.uuid4().hex + ".png"
     im.save(dst)
+    # close temp dir
+    temp_d.cleanup()
     return dst
 
 
