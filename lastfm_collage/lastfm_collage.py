@@ -44,7 +44,7 @@ def gen_collage(imgs):
 
 def download_links(urls, out=None):
     """Download list of URLs and returns list of their filenames."""
-    return [wget.download(url, out=out, bar=None) for url in urls]
+    return [wget.download(url, out=out, bar=None) for url in urls if url]
 
 
 def load_secrets():
